@@ -21,7 +21,7 @@ export class AppComponent {
     },
   ];
   private rootPage: any;
-  private isAuthorized: boolean;
+  public isAuthorized: boolean;
 
   constructor(
     private platform: Platform,
