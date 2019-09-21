@@ -1,5 +1,7 @@
 {
   "name": "screening-app",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }
