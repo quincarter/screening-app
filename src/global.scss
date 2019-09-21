@@ -24,3 +24,15 @@
 @import "~@ionic/angular/css/text-alignment.css";
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
+
+.login-box {
+  position: relative;
+  top: 10vh;
+}
+
+@media screen and (min-width: 800px) {
+  .login-box {
+    max-width: 50vw;
+    left: 25vw;
+  }
+}

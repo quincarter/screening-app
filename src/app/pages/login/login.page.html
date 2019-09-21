@@ -6,7 +6,7 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content *ngIf="loginForm">
+<ion-content *ngIf="loginForm" class="login-box">
   <form [formGroup]="loginForm" (submit)="loginUser()" novalidate>
       <ion-item>
           <img class="logo" src="../../../assets/img/code-brain-no-text.png" alt="code brain">
