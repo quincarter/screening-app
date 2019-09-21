@@ -34,13 +34,12 @@ export class AppComponent {
       console.log(user);
       this.isAuthorized = !!user;
       if (user) {
-        this.rootPage = 'HomePage';
-        console.log(this.rootPage);
+        this.rootPage = '/home';
+        this.navCtrl.navigateRoot(this.rootPage);
         authObserver.unsubscribe();
       } else {
         this.rootPage = '/login';
         this.navCtrl.navigateRoot(this.rootPage);
-        console.log(this.rootPage);
         authObserver.unsubscribe();
       }
     });
