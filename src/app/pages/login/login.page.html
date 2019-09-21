@@ -1,14 +1,17 @@
 <ion-header>
   <ion-toolbar color="primary">
     <ion-title>
-      Login
+      Welcome! Please login
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content *ngIf="loginForm">
   <form [formGroup]="loginForm" (submit)="loginUser()" novalidate>
-    <ion-item>
+      <ion-item>
+          <img class="logo" src="../../../assets/img/code-brain-no-text.png" alt="code brain">
+      </ion-item>
+      <ion-item>
       <ion-label position="stacked">Email</ion-label>
       <ion-input
               #email
