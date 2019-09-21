@@ -21,6 +21,7 @@ export class AppComponent {
     },
   ];
   private rootPage: any;
+  private isAuthorized: boolean;
 
   constructor(
     private platform: Platform,
@@ -31,6 +32,7 @@ export class AppComponent {
   ) {
     const authObserver = afAuth.authState.subscribe( user => {
       console.log(user);
+      this.isAuthorized = !!user;
       if (user) {
         this.rootPage = 'HomePage';
         console.log(this.rootPage);
