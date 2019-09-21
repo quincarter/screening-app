@@ -1,29 +1,37 @@
 import {Injectable} from '@angular/core';
 import {AngularFireAuth} from '@angular/fire/auth';
+import {BehaviorSubject, Observable} from 'rxjs';
 
 @Injectable({
     providedIn: 'root'
 })
 export class AuthService {
 
+    private isAuthorized: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(null);
+    public readonly isAuthorized$: Observable<boolean> = this.isAuthorized.asObservable();
+
     constructor(
         public afAuth: AngularFireAuth
     ) {
     }
 
-  loginUser(newEmail: string, newPassword: string): Promise<any> {
-    return this.afAuth.auth.signInWithEmailAndPassword(newEmail, newPassword);
-  }
+    setAuthorized(value) {
+        this.isAuthorized.next(value);
+    }
 
-  resetPassword(email: string): Promise<void> {
-    return this.afAuth.auth.sendPasswordResetEmail(email);
-  }
+    loginUser(newEmail: string, newPassword: string): Promise<any> {
+        return this.afAuth.auth.signInWithEmailAndPassword(newEmail, newPassword);
+    }
 
-  logoutUser(): Promise<void> {
-    return this.afAuth.auth.signOut();
-  }
+    resetPassword(email: string): Promise<void> {
+        return this.afAuth.auth.sendPasswordResetEmail(email);
+    }
 
-  signupUser(newEmail: string, newPassword: string): Promise<any> {
-    return this.afAuth.auth.createUserWithEmailAndPassword(newEmail, newPassword);
-  }
+    logoutUser(): Promise<void> {
+        return this.afAuth.auth.signOut();
+    }
+
+    signupUser(newEmail: string, newPassword: string): Promise<any> {
+        return this.afAuth.auth.createUserWithEmailAndPassword(newEmail, newPassword);
+    }
 }

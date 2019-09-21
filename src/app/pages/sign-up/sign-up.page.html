@@ -7,7 +7,7 @@
 <ion-content padding>
   <form [formGroup]="signupForm" (submit)="signupUser()" novalidate>
     <ion-item>
-      <ion-label stacked>Email</ion-label>
+      <ion-label position="stacked">Email</ion-label>
       <ion-input
               formControlName="email"
               type="email"
@@ -23,7 +23,7 @@
     </ion-item>
 
     <ion-item>
-      <ion-label stacked>Password</ion-label>
+      <ion-label position="stacked">Password</ion-label>
       <ion-input
               formControlName="password"
               type="password"
@@ -38,8 +38,8 @@
       <p>Your password needs more than 6 characters.</p>
     </ion-item>
 
-    <button ion-button block type="submit">
+    <ion-button size="block" type="submit">
       Create an Account
-    </button>
+    </ion-button>
   </form>
 </ion-content>

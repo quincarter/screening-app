@@ -37,7 +37,7 @@ export class LoginPage {
 
     async loginUser() {
         if (!this.loginForm.valid) {
-            console.log(this.loginForm.value, this.loginForm.controls);
+            // do something
         } else {
             this.authData.loginUser(this.loginForm.value.email, this.loginForm.value.password)
                 .then(authData => {
