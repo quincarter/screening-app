@@ -1,8 +1,11 @@
 import { Component } from '@angular/core';
 
-import { Platform } from '@ionic/angular';
+import {NavController, Platform} from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
+import {AngularFireAuth} from '@angular/fire/auth';
+import {HomePage} from './home/home.page';
+import {LoginPage} from './pages/login/login.page';
 
 @Component({
   selector: 'app-root',
@@ -16,18 +19,29 @@ export class AppComponent {
       url: '/home',
       icon: 'home'
     },
-    {
-      title: 'List',
-      url: '/list',
-      icon: 'list'
-    }
   ];
+  private rootPage: any;
 
   constructor(
     private platform: Platform,
     private splashScreen: SplashScreen,
-    private statusBar: StatusBar
+    private statusBar: StatusBar,
+    private afAuth: AngularFireAuth,
+    private navCtrl: NavController,
   ) {
+    const authObserver = afAuth.authState.subscribe( user => {
+      console.log(user);
+      if (user) {
+        this.rootPage = 'HomePage';
+        console.log(this.rootPage);
+        authObserver.unsubscribe();
+      } else {
+        this.rootPage = '/login';
+        this.navCtrl.navigateRoot(this.rootPage);
+        console.log(this.rootPage);
+        authObserver.unsubscribe();
+      }
+    });
     this.initializeApp();
   }
 
