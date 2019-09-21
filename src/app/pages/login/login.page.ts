@@ -50,7 +50,7 @@ export class LoginPage {
                     });
                 });
 
-            this.loading = this.loadingCtrl.create({});
+            this.loading = await this.loadingCtrl.create({});
             await this.loading.present();
             await this.loading.dismiss();
         }

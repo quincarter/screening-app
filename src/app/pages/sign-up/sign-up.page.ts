@@ -45,7 +45,7 @@ export class SignUpPage {
                     });
                 });
 
-            this.loading = this.loadingCtrl.create({});
+            this.loading = await this.loadingCtrl.create({});
             await this.loading.present();
             await this.loading.dismiss();
         }
